@@ -1,9 +1,9 @@
-FROM ubuntu:15.10
+FROM deepestthought42/build-essentials:0.1
 MAINTAINER Renee Klawitter <deepestthought42@gmail.com>
 
 ## install packages
 RUN apt-get update
-RUN apt-get install -y curl wget rlwrap bzip2 build-essential git
+RUN apt-get install -y curl wget rlwrap libffi-dev
 
 ENV HOME /root
 

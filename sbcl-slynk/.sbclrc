@@ -1,0 +1,12 @@
+;;; The following lines added by ql:add-to-init-file:
+#-quicklisp
+(let ((quicklisp-init "/lisp/quicklisp/setup.lisp"))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+
+
+(ql:quickload :slynk)
+(ql:quickload :slynk-mrepl)
+
+(slynk:create-server :port 4005 :dont-close t)
+(setf slynk-mrepl:*use-dedicated-output-stream* nil)

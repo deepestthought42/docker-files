@@ -10,7 +10,7 @@ RUN apt-get install -y bzip2 build-essential git openssh-server ssh-client
 ENV HOME /root
 
 RUN mkdir /var/run/sshd
-RUN echo 'root:$ssh_password' | chpasswd
+RUN echo "root:$ssh_password" | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login
@@ -23,4 +23,3 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 
 
 EXPOSE 22
-
