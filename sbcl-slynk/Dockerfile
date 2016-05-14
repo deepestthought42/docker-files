@@ -27,6 +27,6 @@ ADD .sbclrc /root/.sbclrc
 
 
 EXPOSE 22
-ADD startup.sh /root/startup.sh
+#ADD startup.sh /root/startup.sh
 
-CMD ["/bin/bash", "/root/startup.sh"]
+CMD ["/usr/sbin/sshd", "-D"]

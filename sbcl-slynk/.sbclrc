@@ -8,5 +8,19 @@
 (ql:quickload :slynk)
 (ql:quickload :slynk-mrepl)
 
-(slynk:create-server :port 4005 :dont-close t)
+(let ((port (posix-getenv "SLY_PORT")))
+  (slynk:create-server :port (if port (parse-integer port) 4005)
+		       :dont-close t))
+
 (setf slynk-mrepl:*use-dedicated-output-stream* nil)
+
+(let ((ql-source-dir (posix-getenv "QL_SOURCE_DIRS")))
+  (if ql-source-dir
+      (mapcar #'(lambda (source-dir)
+		  (map-directory #'(lambda (dir)
+				     (if (not (position #\. (directory-namestring dir)))
+					 (push dir asdf:*central-registry*))) 
+				 (first (directory source-dir)) :directories t :files nil))
+	      (uiop/utility:split-string  ql-source-dir :separator ":"))))
+
+
