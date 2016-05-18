@@ -1,4 +1,4 @@
-FROM deepestthought42/sbcl-slynk:1.3.5
+FROM deepestthought42/sbcl-1.3.5-slynk:20160517
 MAINTAINER Renee Klawitter <deepestthought42@gmail.com>
 
 RUN apt-get update
@@ -12,3 +12,7 @@ RUN curl http://netix.dl.sourceforge.net/project/ibsimu/ibsimu/libibsimu-1.0.6.t
 
 WORKDIR /src/libibsimu-1.0.6
 RUN ./configure && make -j 4 && make install
+
+
+# fixme: needs to be joined w/ above install command
+RUN apt-get install swig
