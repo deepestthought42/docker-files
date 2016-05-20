@@ -1,9 +1,8 @@
-FROM deepestthought42/sbcl:1.3.5
+FROM deepestthought42/sbcl-1.3.5:20160520
 MAINTAINER Renee Klawitter <deepestthought42@gmail.com>
 
 
 ## download and install quicklisp
-RUN mkdir /lisp
 
 WORKDIR /lisp
 RUN wget http://beta.quicklisp.org/quicklisp.lisp

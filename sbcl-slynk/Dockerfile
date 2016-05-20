@@ -1,4 +1,4 @@
-FROM deepestthought42/sbcl-quicklisp:1.3.5
+FROM deepestthought42/sbcl-1.3.5-quicklisp:20160520
 MAINTAINER Renee Klawitter <deepestthought42@gmail.com>
 
 
