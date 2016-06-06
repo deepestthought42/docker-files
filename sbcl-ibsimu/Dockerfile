@@ -1,4 +1,4 @@
-FROM deepestthought42/sbcl-1.3.5-slynk:20160520
+FROM deepestthought42/sbcl-1.3.5-slime:20160606
 MAINTAINER Renee Klawitter <deepestthought42@gmail.com>
 
 RUN apt-get update
