@@ -1,4 +1,4 @@
-FROM deepestthought42/sbcl-1.3.5-quicklisp:20160520
+FROM deepestthought42/sbcl-1.3.5-quicklisp:20160606
 MAINTAINER Renee Klawitter <deepestthought42@gmail.com>
 
 
@@ -14,5 +14,9 @@ ADD .sbclrc /root/.sbclrc
 
 EXPOSE 22
 #ADD startup.sh /root/startup.sh
+
+ARG username
+
+RUN useradd -ms /bin/bash $username
 
 CMD ["/usr/sbin/sshd", "-D"]

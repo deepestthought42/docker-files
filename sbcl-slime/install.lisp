@@ -1,3 +1,3 @@
 ;;; install slynk packages needed
 
-(ql:quickload :slime)
+(ql:quickload :swank)
