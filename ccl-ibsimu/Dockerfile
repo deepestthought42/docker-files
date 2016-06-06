@@ -1,4 +1,4 @@
-FROM deepestthought42/ccl-1-11-slime:20160606 
+FROM deepestthought42/ccl-1-11-slime:20160606
 MAINTAINER Renee Klawitter <deepestthought42@gmail.com>
 
 RUN apt-get update
@@ -12,5 +12,9 @@ RUN curl http://netix.dl.sourceforge.net/project/ibsimu/ibsimu/libibsimu-1.0.6.t
 
 WORKDIR /src/libibsimu-1.0.6
 RUN ./configure && make -j 4 && make install
+
+ADD .ccl-init.lisp /home/$username/.ccl-init.lisp
+RUN chown -R renee:renee /home/$username/*
+
 
 CMD ["/usr/sbin/sshd", "-D"]

@@ -33,7 +33,7 @@ ENV HOME=/home/$username
 RUN /home/$username/lisp/ccl/lx86cl64 -b -l install.lisp
 
 
-ADD .ccl-init.lisp /home/$username/.ccl-init.lisp
+ADD .ccl-init.lisp /home/$username/.ccl-init.lispw
 RUN chown -R renee:renee /home/$username/*
 
 EXPOSE 22
