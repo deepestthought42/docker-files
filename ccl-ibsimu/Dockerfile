@@ -16,7 +16,7 @@ RUN ./configure && make -j 4 && make install
 ADD .ccl-init.lisp /home/$username/.ccl-init.lisp
 RUN chown -R renee:renee /home/$username/*
 
-RUN apt-get install -y libprotobuf-c-dev libprotobuf-dev libgtest-dev
+RUN apt-get install -y libprotobuf-c-dev libprotobuf-dev libgtest-dev libboost-dev
 
 WORKDIR /usr/src/gtest/build
 RUN cmake ../ && make
