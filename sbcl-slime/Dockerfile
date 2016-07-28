@@ -47,11 +47,14 @@ RUN sbcl --non-interactive --load /home/$username/lisp/install.lisp
 
 ADD .sbclrc /home/$username/.sbclrc
 
-
 EXPOSE 22
-#ADD startup.sh /root/startup.sh
 
 USER root
+
+RUN apt-get update && apt-get install -y gnuplot5 x11-utils
+
+RUN locale-gen en_CA.UTF-8
+RUN dpkg-reconfigure locales
 
 CMD ["/usr/sbin/sshd", "-D"]
 
