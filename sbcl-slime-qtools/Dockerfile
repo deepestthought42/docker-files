@@ -15,6 +15,8 @@ RUN sbcl --non-interactive --eval '(ql:quickload :qtools)'
 
 USER root
 
+RUN apt-get update && apt-get install -y lib
+
 CMD ["/usr/sbin/sshd", "-D"]
 
 
